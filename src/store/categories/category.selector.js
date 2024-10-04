@@ -1,7 +1,12 @@
 import { createSelector } from "reselect";
 
 // Input selector to get categories array from state
-const selectCategories = (state) => state.categories.categories;
+const selectCategoryReducer = (state) => state.categories;
+
+export const selectCategories = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.categories
+);
 
 export const selectCategoriesMap = createSelector(
   [selectCategories],
